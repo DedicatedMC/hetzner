@@ -327,6 +327,12 @@ class IpManager(object):
         Get a specific IP address of a server.
         """
         return IpAddress(self.conn, self.conn.get('/ip/{0}'.format(ip)))
+    
+    def get_all(self):
+        """
+        Get all IP addresses of a server.
+        """
+        return IpAddresses(self.conn, self.conn.get('/ip'))
 
     def __iter__(self):
         data = urlencode({'server_ip': self.main_ip})
